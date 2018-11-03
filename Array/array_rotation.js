@@ -26,7 +26,7 @@ function rotateArray(arr, d) {
     if(len == 0){
         return [];
     }
-    if(d >= len || d < 0){
+    if(d > len || d < 0){
         throw new Error('indexOutOfBound for number of rotations');
     }
     const tempArray = [];
