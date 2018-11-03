@@ -1,7 +1,7 @@
 const { expect, assert, should } = require('chai');
-const rotateArray = require('../Array/array_rotation');
+const { rotateArray } = require('../Array/array_rotation');
 
-describe('Helper Functions', () => {
+describe('Array rotation method', () => {
     it('should throw an error when array is not provided', () => {
         expect(rotateArray).to.throw();
     });

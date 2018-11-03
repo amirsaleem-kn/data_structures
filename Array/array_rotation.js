@@ -13,6 +13,8 @@
  * @param {type:array} arr array containing elements to rotate
  * @param {type:integer} d number by which rotation should take place
  * THE BASIC ALGORITHM
+ * Time Complexity: o(n)
+ * Auxliary Space: o(1)
  */
 
 function rotateArray(arr, d) {
@@ -29,16 +31,16 @@ function rotateArray(arr, d) {
     if(d > len || d < 0){
         throw new Error('indexOutOfBound for number of rotations');
     }
-    const tempArray = [];
+    var tempVar = null;
     // [step:1] store the elements needs to be pushed in the end of an array in a temp array
     for (var i = 0; i < d; i++) {
-        tempArray.push(arr[i]);
+        tempVar = arr[0]; // store the first element in a temp variable
+        arr.splice(0,1); // remove the first element from the main array
+        arr.push(tempVar); // push tht element just deleted to the end of the main array
     }
-    // [step:2] filter out the elements from main array that are in tempArray
-    arr = arr.filter((elem) => { return tempArray.indexOf(elem) === -1 });
-    // [step:3] add the tempArray in the end of the array
-    arr = arr.concat(tempArray);
     return arr;
 }
 
-module.exports = rotateArray;
+console.log(rotateArray([1,2,3,4,5,6,7],2));
+
+module.exports = { rotateArray };
